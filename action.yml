@@ -1,5 +1,5 @@
-name: "CBGH Automatic Releases"
-author: "crowbarmaster/marvinpinto"
+name: "EMS-ESP Automatic Releases"
+author: "crowbarmaster/marvinpinto/emsesp"
 description: "Automate GitHub releases with assets, changelogs, pre-releases, etc. Original work marvinpinto, updated by crowbarmaster."
 inputs:
   repo_token:

@@ -1,8 +1,8 @@
 # GitHub Automatic Releases
 
 This action simplifies the GitHub release process by automatically uploading assets, generating changelogs, handling pre-releases, and so on.
-Original work by marvinpinto, updated and refactored by crowbarmaster.
-This action is fully compatible with Marvinpinto's original work.
+
+Original work by marvinpinto, updated and refactored by crowbarmaster and then modified for EMS-ESP.
 
 ## Contents
 
@@ -26,7 +26,7 @@ This example workflow will kick in as soon as changes land on `master`. After ru
 1. Upload `LICENSE.txt` and any `jar` files as release assets.
 1. Mark this release as a `pre-release`.
 
-You can see a working example of this workflow over at [emsesp/GHactions](https://github.com/emsesp/GHactions/releases/tag/latest).
+You can see a working example of this workflow over at [crowbarmaster/GHactions](https://github.com/crowbarmaster/GHactions/releases/tag/latest).
 
 ```yaml
 ---
@@ -66,8 +66,6 @@ Similar to the previous example, this workflow will kick in as soon as new tags 
 1. Generate a changelog from all the commits between this and the previous [semver-looking](https://semver.org/) tag.
 1. Generate a new release and associate it with this tag.
 1. Upload `LICENSE.txt` and any `jar` files as release assets.
-
-Once again there's an example of this over at [emsesp/GHactions](https://github.com/emsesp/GHactions/releases/latest).
 
 ```yaml
 ---
@@ -122,7 +120,7 @@ The following output values can be accessed via `${{ steps.<step-id>.outputs.<ou
 | `upload_url`             | The URL for uploading additional assets to the release | string |
 | `release_id`             | The ID that was returned for this release              | string |
 
-### Notes:
+### Notes
 
 - Parameters denoted with `**` are required.
 - The `files` parameter supports multi-line [glob](https://github.com/isaacs/node-glob) patterns, see repository examples.
@@ -131,17 +129,9 @@ The following output values can be accessed via `${{ steps.<step-id>.outputs.<ou
 
 The GitHub Actions framework allows you to trigger this (and other) actions on _many combinations_ of events. For example, you could create specific pre-releases for release candidate tags (e.g `*-rc*`), generate releases as changes land on master (example above), nightly releases, and much more. Read through [Workflow syntax for GitHub Actions](https://help.github.com/en/articles/workflow-syntax-for-github-actions) for ideas and advanced examples.
 
-## Versioning
-
-Every commit that lands on master for this project triggers an automatic build as well as a tagged release called `latest`. If you don't wish to live on the bleeding edge you may use a stable release instead. See [releases](../../releases/latest) for the available versions.
-
 ```yaml
 - uses: "emsesp/GH-Automatic-Releases@<VERSION>"
 ```
-
-## How to get help
-
-The main [README](https://github.com/emsesp/GHactions/blob/master/README.md) for this project has a bunch of information related to debugging & submitting issues. If you're still stuck, try and get a hold of me on [keybase](https://keybase.io/marvinpinto) and I will do my best to help you out.
 
 ## License
 

@@ -13,8 +13,6 @@ This action is fully compatible with Marvinpinto's original work.
 1. [How to get help](#how-to-get-help)
 1. [License](#license)
 
-> **NOTE**: The `emsesp/GH-automatic-releases` repository is an automatically generated mirror of the [emsesp/GHactions](https://github.com/emsesp/GHactions) monorepo containing this action. Please file issues and pull requests over there.
-
 ## Usage Examples
 
 ### Automatically generate a pre-release when changes land on master

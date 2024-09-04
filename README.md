@@ -1,6 +1,8 @@
 # GitHub Automatic Releases
 
 This action simplifies the GitHub release process by automatically uploading assets, generating changelogs, handling pre-releases, and so on.
+Original work by marvinpinto, updated and refactored by crowbarmaster.
+This action is fully compatable with marvinpinto's original work.
 
 ## Contents
 
@@ -11,7 +13,7 @@ This action simplifies the GitHub release process by automatically uploading ass
 1. [How to get help](#how-to-get-help)
 1. [License](#license)
 
-> **NOTE**: The `marvinpinto/action-automatic-releases` repository is an automatically generated mirror of the [marvinpinto/actions](https://github.com/marvinpinto/actions) monorepo containing this and other actions. Please file issues and pull requests over there.
+> **NOTE**: The `crowbarmaster/GH-automatic-releases` repository is an automatically generated mirror of the [crowbarmaster/GHactions](https://github.com/crowbarmaster/GHactions) monorepo containing this action. Please file issues and pull requests over there.
 
 ## Usage Examples
 
@@ -26,7 +28,7 @@ This example workflow will kick in as soon as changes land on `master`. After ru
 1. Upload `LICENSE.txt` and any `jar` files as release assets.
 1. Mark this release as a `pre-release`.
 
-You can see a working example of this workflow over at [marvinpinto/actions](https://github.com/marvinpinto/actions/releases/tag/latest).
+You can see a working example of this workflow over at [crowbarmaster/GHactions](https://github.com/crowbarmaster/GHactions/releases/tag/latest).
 
 ```yaml
 ---
@@ -48,7 +50,7 @@ jobs:
         run: |
           echo "done!"
 
-      - uses: "marvinpinto/action-automatic-releases@latest"
+      - uses: "crowbarmaster/GH-Automatic-Releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
@@ -67,7 +69,7 @@ Similar to the previous example, this workflow will kick in as soon as new tags 
 1. Generate a new release and associate it with this tag.
 1. Upload `LICENSE.txt` and any `jar` files as release assets.
 
-Once again there's an example of this over at [marvinpinto/actions](https://github.com/marvinpinto/actions/releases/latest).
+Once again there's an example of this over at [crowbarmaster/GHactions](https://github.com/crowbarmaster/GHactions/releases/latest).
 
 ```yaml
 ---
@@ -89,7 +91,7 @@ jobs:
         run: |
           echo "done!"
 
-      - uses: "marvinpinto/action-automatic-releases@latest"
+      - uses: "crowbarmaster/GH-Automatic-Releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
@@ -100,14 +102,17 @@ jobs:
 
 ## Supported Parameters
 
-| Parameter               | Description                                                | Default  |
-| ----------------------- | ---------------------------------------------------------- | -------- |
-| `repo_token`\*\*        | GitHub Action token, e.g. `"${{ secrets.GITHUB_TOKEN }}"`. | `null`   |
-| `draft`                 | Mark this release as a draft?                              | `false`  |
-| `prerelease`            | Mark this release as a pre-release?                        | `true`   |
-| `automatic_release_tag` | Tag name to use for automatic releases, e.g `latest`.      | `null`   |
-| `title`                 | Release title; defaults to the tag name if none specified. | Tag Name |
-| `files`                 | Files to upload as part of the release assets.             | `null`   |
+| Parameter               | Description                                                | Default   |
+| ----------------------- | ---------------------------------------------------------- | --------- |
+| `repo_token`\*\*        | GitHub Action token, e.g. `"${{ secrets.GITHUB_TOKEN }}"`. | `null`    |
+| `draft`                 | Mark this release as a draft?                              | `false`   |
+| `prerelease`            | Mark this release as a pre-release?                        | `true`    |
+| `overwrite_tag`         | Do you aim to overwrite existing releases?                 | `true`    |
+| `generate_notes`        | Do you wish to have release notes auto-generated?          | `true`    |
+| `automatic_release_tag` | Tag name to use for automatic releases, e.g `latest`.      | `null`    |
+| `title`                 | Release title; defaults to the tag name if none specified. | Tag Name  |
+| `body`                  | Release body; defaults to changelog if none specified.     | Changelog |
+| `files`                 | Files to upload as part of the release assets.             | `null`    |
 
 ## Outputs
 
@@ -117,6 +122,7 @@ The following output values can be accessed via `${{ steps.<step-id>.outputs.<ou
 | ------------------------ | ------------------------------------------------------ | ------ |
 | `automatic_releases_tag` | The release tag this action just processed             | string |
 | `upload_url`             | The URL for uploading additional assets to the release | string |
+| `release_id`             | The ID that was returned for this release              | string |
 
 ### Notes:
 
@@ -132,12 +138,12 @@ The GitHub Actions framework allows you to trigger this (and other) actions on _
 Every commit that lands on master for this project triggers an automatic build as well as a tagged release called `latest`. If you don't wish to live on the bleeding edge you may use a stable release instead. See [releases](../../releases/latest) for the available versions.
 
 ```yaml
-- uses: "marvinpinto/action-automatic-releases@<VERSION>"
+- uses: "crowbarmaster/GH-Automatic-Releases@<VERSION>"
 ```
 
 ## How to get help
 
-The main [README](https://github.com/marvinpinto/actions/blob/master/README.md) for this project has a bunch of information related to debugging & submitting issues. If you're still stuck, try and get a hold of me on [keybase](https://keybase.io/marvinpinto) and I will do my best to help you out.
+The main [README](https://github.com/crowbarmaster/GHactions/blob/master/README.md) for this project has a bunch of information related to debugging & submitting issues. If you're still stuck, try and get a hold of me on [keybase](https://keybase.io/marvinpinto) and I will do my best to help you out.
 
 ## License
 

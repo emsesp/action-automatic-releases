@@ -2,7 +2,7 @@
 
 This action simplifies the GitHub release process by automatically uploading assets, generating changelogs, handling pre-releases, and so on.
 Original work by marvinpinto, updated and refactored by crowbarmaster.
-This action is fully compatable with marvinpinto's original work.
+This action is fully compatible with Marvinpinto's original work.
 
 ## Contents
 
@@ -13,7 +13,7 @@ This action is fully compatable with marvinpinto's original work.
 1. [How to get help](#how-to-get-help)
 1. [License](#license)
 
-> **NOTE**: The `crowbarmaster/GH-automatic-releases` repository is an automatically generated mirror of the [crowbarmaster/GHactions](https://github.com/crowbarmaster/GHactions) monorepo containing this action. Please file issues and pull requests over there.
+> **NOTE**: The `emsesp/GH-automatic-releases` repository is an automatically generated mirror of the [emsesp/GHactions](https://github.com/emsesp/GHactions) monorepo containing this action. Please file issues and pull requests over there.
 
 ## Usage Examples
 
@@ -28,7 +28,7 @@ This example workflow will kick in as soon as changes land on `master`. After ru
 1. Upload `LICENSE.txt` and any `jar` files as release assets.
 1. Mark this release as a `pre-release`.
 
-You can see a working example of this workflow over at [crowbarmaster/GHactions](https://github.com/crowbarmaster/GHactions/releases/tag/latest).
+You can see a working example of this workflow over at [emsesp/GHactions](https://github.com/emsesp/GHactions/releases/tag/latest).
 
 ```yaml
 ---
@@ -50,7 +50,7 @@ jobs:
         run: |
           echo "done!"
 
-      - uses: "crowbarmaster/GH-Automatic-Releases@latest"
+      - uses: "emsesp/GH-Automatic-Releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
@@ -69,7 +69,7 @@ Similar to the previous example, this workflow will kick in as soon as new tags 
 1. Generate a new release and associate it with this tag.
 1. Upload `LICENSE.txt` and any `jar` files as release assets.
 
-Once again there's an example of this over at [crowbarmaster/GHactions](https://github.com/crowbarmaster/GHactions/releases/latest).
+Once again there's an example of this over at [emsesp/GHactions](https://github.com/emsesp/GHactions/releases/latest).
 
 ```yaml
 ---
@@ -91,7 +91,7 @@ jobs:
         run: |
           echo "done!"
 
-      - uses: "crowbarmaster/GH-Automatic-Releases@latest"
+      - uses: "emsesp/GH-Automatic-Releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
@@ -138,12 +138,12 @@ The GitHub Actions framework allows you to trigger this (and other) actions on _
 Every commit that lands on master for this project triggers an automatic build as well as a tagged release called `latest`. If you don't wish to live on the bleeding edge you may use a stable release instead. See [releases](../../releases/latest) for the available versions.
 
 ```yaml
-- uses: "crowbarmaster/GH-Automatic-Releases@<VERSION>"
+- uses: "emsesp/GH-Automatic-Releases@<VERSION>"
 ```
 
 ## How to get help
 
-The main [README](https://github.com/crowbarmaster/GHactions/blob/master/README.md) for this project has a bunch of information related to debugging & submitting issues. If you're still stuck, try and get a hold of me on [keybase](https://keybase.io/marvinpinto) and I will do my best to help you out.
+The main [README](https://github.com/emsesp/GHactions/blob/master/README.md) for this project has a bunch of information related to debugging & submitting issues. If you're still stuck, try and get a hold of me on [keybase](https://keybase.io/marvinpinto) and I will do my best to help you out.
 
 ## License
 
